@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://docs.oasis-open.org/ws-tx/wscoor/2006/06"
+    version="1.0" xmlns:wsa="http://www.w3.org/2005/08/addressing"
+    xmlns:wscoor="http://docs.oasis-open.org/ws-tx/wscoor/2006/06" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="ws-addr.xsd"/>
+    <xsd:element name="Expires">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:unsignedInt">
+                    <xsd:anyAttribute namespace="##other"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="CoordinationContextType">
+        <xsd:sequence>
+            <xsd:element name="Identifier">
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="xsd:anyURI">
+                            <xsd:anyAttribute namespace="##other"/>
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="wscoor:Expires"/>
+            <xsd:element name="CoordinationType" type="xsd:anyURI"/>
+            <xsd:element name="RegistrationService" type="wsa:EndpointReferenceType"/>
+        </xsd:sequence>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+    <xsd:element name="CoordinationContext">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="wscoor:CoordinationContextType">
+                    <xsd:sequence>
+                        <xsd:any maxOccurs="unbounded" minOccurs="0"
+                            namespace="##other" processContents="lax"/>
+                    </xsd:sequence>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="CreateCoordinationContextType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="wscoor:Expires"/>
+            <xsd:element minOccurs="0" name="CurrentContext">
+                <xsd:complexType>
+                    <xsd:complexContent>
+                        <xsd:extension base="wscoor:CoordinationContextType">
+                            <xsd:sequence>
+                                <xsd:any maxOccurs="unbounded"
+                                    minOccurs="0" namespace="##other" processContents="lax"/>
+                            </xsd:sequence>
+                        </xsd:extension>
+                    </xsd:complexContent>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CoordinationType" type="xsd:anyURI"/>
+            <xsd:any maxOccurs="unbounded" minOccurs="0"
+                namespace="##any" processContents="lax"/>
+        </xsd:sequence>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+    <xsd:element name="CreateCoordinationContext" type="wscoor:CreateCoordinationContextType"/>
+    <xsd:complexType name="CreateCoordinationContextResponseType">
+        <xsd:sequence>
+            <xsd:element ref="wscoor:CoordinationContext"/>
+            <xsd:any maxOccurs="unbounded" minOccurs="0"
+                namespace="##other" processContents="lax"/>
+        </xsd:sequence>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+    <xsd:element name="CreateCoordinationContextResponse" type="wscoor:CreateCoordinationContextResponseType"/>
+    <xsd:complexType name="RegisterType">
+        <xsd:sequence>
+            <xsd:element name="ProtocolIdentifier" type="xsd:anyURI"/>
+            <xsd:element name="ParticipantProtocolService" type="wsa:EndpointReferenceType"/>
+            <xsd:any maxOccurs="unbounded" minOccurs="0"
+                namespace="##any" processContents="lax"/>
+        </xsd:sequence>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+    <xsd:element name="Register" type="wscoor:RegisterType"/>
+    <xsd:complexType name="RegisterResponseType">
+        <xsd:sequence>
+            <xsd:element name="CoordinatorProtocolService" type="wsa:EndpointReferenceType"/>
+            <xsd:any maxOccurs="unbounded" minOccurs="0"
+                namespace="##any" processContents="lax"/>
+        </xsd:sequence>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+    <xsd:element name="RegisterResponse" type="wscoor:RegisterResponseType"/>
+    <xsd:simpleType name="ErrorCodes">
+        <xsd:restriction base="xsd:QName">
+            <xsd:enumeration value="wscoor:InvalidParameters"/>
+            <xsd:enumeration value="wscoor:InvalidProtocol"/>
+            <xsd:enumeration value="wscoor:InvalidState"/>
+            <xsd:enumeration value="wscoor:CannotCreateContext"/>
+            <xsd:enumeration value="wscoor:CannotRegisterParticipant"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
