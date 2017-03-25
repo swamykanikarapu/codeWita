@@ -1,0 +1,60 @@
+<Reply>
+					<Header>
+						<ChannelId />
+						<ChannelUserId />
+						<ChannelPwd />
+						<ChannelType />
+						<TxnDate>20161129</TxnDate>
+						<TxnTime>204732</TxnTime>
+						<TxnRefNum />
+						<ServiceId />
+						<ModuleId />
+						<VersionNum />
+						<HostUserId />
+						<MachineRef />
+						<BatchId />
+						<ContinueOnError />
+						<IsOnline />
+						<HostStatus>S</HostStatus>
+						<HostResponseCode>ab</HostResponseCode>
+						<NumofBlocks>1</NumofBlocks>
+					</Header>
+					<DataBlock>
+						<DataHead>
+							<MWIClientCode>82122</MWIClientCode>
+							<DrCode>Occ</DrCode>
+						</DataHead>
+						<DataDetails>
+							<Data>
+								<Folio DropdownText="Agriculture" DropdownValue="1" />
+								<Folio DropdownText="Architech" DropdownValue="19" />
+								<Folio DropdownText="Business" DropdownValue="2" />
+								<Folio DropdownText="BusinessTest" DropdownValue="24" />
+								<Folio DropdownText="House Wife" DropdownValue="25" />
+								<Folio DropdownText="HouseWife" DropdownValue="10" />
+								<Folio DropdownText="it" DropdownValue="33" />
+								<Folio DropdownText="jj" DropdownValue="22" />
+								<Folio DropdownText="NA" DropdownValue="31" />
+								<Folio DropdownText="Non Working" DropdownValue="26" />
+								<Folio DropdownText="Occ_KOT" DropdownValue="32" />
+								<Folio DropdownText="Others" DropdownValue="3" />
+								<Folio DropdownText="Professional" DropdownValue="4" />
+								<Folio DropdownText="QA Enginer" DropdownValue="34" />
+								<Folio DropdownText="Retired" DropdownValue="5" />
+								<Folio DropdownText="Salaried" DropdownValue="18" />
+								<Folio DropdownText="Salaried" DropdownValue="9" />
+								<Folio DropdownText="Self Employed" DropdownValue="13" />
+								<Folio DropdownText="SENP - Dealership" DropdownValue="27" />
+								<Folio DropdownText="SENP - Distributor" DropdownValue="28" />
+								<Folio DropdownText="SENP - Job Worker" DropdownValue="29" />
+								<Folio DropdownText="SENP - Manufacturer" DropdownValue="30" />
+								<Folio DropdownText="Service-Pub. Sector/Govt." DropdownValue="6" />
+								<Folio DropdownText="Service-Pvt. Sector" DropdownValue="7" />
+								<Folio DropdownText="Software Tester1" DropdownValue="14" />
+								<Folio DropdownText="Student" DropdownValue="8" />
+								<Folio DropdownText="Tester" DropdownValue="35" />
+								<Folio DropdownText="v11145" DropdownValue="23" />
+							</Data>
+						</DataDetails>
+					</DataBlock>
+				</Reply>
